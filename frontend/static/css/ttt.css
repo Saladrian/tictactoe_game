@@ -1,0 +1,295 @@
+:root {
+    --dark-blue: #1e308c;
+    --bg-color: #16161e;
+    --text-color: #888;
+    --link-color: #007BFF;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: var(--text-color);
+    background: var(--bg-color);
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    background: var(--dark-blue);
+}
+
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-link-btn {
+    background-color: var(--dark-blue);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    margin-right: 1em !important;
+}
+
+.nav-link-btn:hover {
+    background-color: #4b5aaf;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+#nav-brand {
+    padding-left: 20px;
+}
+
+.navbar-brand img {
+    width: 48px;
+    height: auto;
+}
+
+.description {
+    left: 50%;
+    position: absolute;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+.description h1 {
+    padding-top: 15px;
+    color: #dfddee;
+}
+
+.features {
+    min-height: 100%;
+    width: 100%;
+    height: 88vh;
+    background-position: center;
+    position: relative;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.container h3 {
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.gamefield {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2vh;
+    max-width: 68vh; /* Increase the maximum width to make it larger */
+    max-height: 68vh; /* Increase the maximum height to make it larger */
+    width: 100%; /* Make the container 100% width */
+    margin: 0 auto; /* Center the container */
+    padding: 4px; /* Remove padding to reduce the space */
+    overflow: auto; /* Add vertical scroll if needed */
+}
+
+#gamefield-parent {
+    position: relative;
+}
+
+#gamefield-grid {
+    background: url("/static/img/tictactoe_grid.svg");
+    background-size: 100% 100%; /* Das Bild wird zu 100% der Breite und Höhe des Divs skaliert */
+    background-repeat: no-repeat; /* Verhindert die Wiederholung des Hintergrundbilds */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ttt {
+    width: 100%; /* Make the buttons 100% width */
+    padding-top: 100%; /* Maintain a 1:1 aspect ratio (height = width) */
+    font-size: 1.5rem; /* Optional: adjust font size */
+}
+
+.gamefield button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    aspect-ratio: 1;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    transition: background-color 0.8s ease;
+    z-index: 2;
+}
+
+.gamefield button:disabled {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gamefield .x {
+    background: url("/static/img/symbol_x.svg");
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.gamefield .o {
+    background: url("/static/img/symbol_o.svg");
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.gameinfo {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2vh;
+    max-height: 68vh; /* Increase the maximum height to make it larger */
+    width: 100%; /* Make the container 100% width */
+    height: 100%;
+    margin: 0 auto; /* Center the container */
+    padding: 0; /* Remove padding to reduce the space */
+    overflow: auto; /* Add vertical scroll if needed */
+    align-items: center;
+}
+
+
+.gameinfo div {
+    height: 15vh;
+    width: 18vw;
+    border: none;
+    background: #252535 !important;
+    border-radius: 3.5vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: var(--text_color);
+    resize: none;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+}
+
+
+/* Einfärben, */
+#connect.connected {
+    font-weight: bolder;
+}
+
+
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 4;
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.overlay.show {
+    display: block;
+}
+
+.overlay .content {
+    width: 60vw;
+    height: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    z-index: 5;
+    overflow: auto;
+}
+
+#content-howto ul {
+  list-style-type: none;
+}
+
+.overlay .content h2 {
+    color: var(--text-color);
+}
+
+/* Style for the content within the overlay */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Close button style (you can customize this further) */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Styling for the credits section */
+.credits {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.credits h3 {
+    margin-bottom: 10px;
+}
+
+.credits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.credits li {
+    margin: 5px 0;
+}
+
+.credits a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}

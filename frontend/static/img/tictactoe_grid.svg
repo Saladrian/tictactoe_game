@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <!-- Vertikale Linien mit abgerundeten Enden -->
+  <line x1="100" y1="05" x2="100" y2="295" stroke="#2e2e38" stroke-width="4" stroke-linecap="round" />
+  <line x1="200" y1="05" x2="200" y2="295" stroke="#2e2e38" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Horizontale Linien mit abgerundeten Enden -->
+  <line x1="05" y1="100" x2="295" y2="100" stroke="#2e2e38" stroke-width="4" stroke-linecap="round" />
+  <line x1="05" y1="200" x2="295" y2="200" stroke="#2e2e38" stroke-width="4" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,45 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('/static/img/bg_home.jpg') center/cover no-repeat; /* Hier das Hintergrundbild ersetzen */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.play-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0074d9;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+}

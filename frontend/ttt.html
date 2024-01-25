@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TicTacToe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/img/game_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/ttt.css" type="text/css" />
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-md" id="nav-bar">
+        <a class="navbar-brand" id="nav-brand" href="/">
+            <img src="static/img/game_icon.png" alt="SA TicTacToe Logo">
+        </a>
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+            data-bs-target="#main-navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="nav-link-btn" onclick="window.location.href='/'">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link-btn" id="howto">How To</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link-btn" id="connect">Connect</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link-btn" id="about">About</button>
+                </li>
+            </ul>
+        </div>
+        <div class="description">
+            <h1>TicTacToe</h1>
+        </div>
+    </nav>
+    <div id="overlay-howto" class="overlay">
+        <div id="content-howto" class="content">
+            <h2>How to</h2>
+            <ul>
+                <li>
+                    <h5>Spielziel</h5>
+                    <p>Das Ziel des Spiels ist es, als erster Spieler drei seiner Symbole (entweder "X" oder "O") in einer horizontalen, vertikalen oder diagonalen Reihe zu platzieren.</p>
+                </li>
+
+                <li>
+                    <h5>Verbindung herstellen</h5>
+                    <p>Bevor das Spiel beginnt, klicke oben rechts auf "Connect", um eine Verbindung herzustellen. Zum Trennen am Ende des Spiels oder zwischen den Runden klicke auf "Disconnect".</p>
+                </li>
+
+                <li>
+                    <h5>Spielablauf</h5>
+                    <p>Zwei Spieler sind beteiligt, einer setzt "X" und der andere "O". Das Spiel beginnt mit einem leeren Spielfeld. Die Spieler wechseln sich ab, ein Symbol ("X" oder "O") in eine leere Zelle zu setzen.</p>
+                </li>
+
+                <li>
+                    <h5>Gewinnbedingungen</h5>
+                    <p>Ein Spieler gewinnt, wenn er drei seiner Symbole in einer Reihe hat (horizontal, vertikal oder diagonal). Das Spiel endet, wenn ein Spieler gewonnen hat, oder es endet unentschieden, wenn alle Zellen belegt sind, aber kein Spieler gewonnen hat.</p>
+                </li>
+
+                <li>
+                    <h5>Spielende</h5>
+                    <p>Wenn ein Spieler gewinnt, wird dies angezeigt, und das Spiel startet automatisch neu. Wenn das Spiel unentschieden endet, wird ein entsprechender Hinweis angezeigt, und das Spiel startet automatisch neu.</p>
+                </li>
+
+                <li>
+                    <h4>Viel Spaß</h4>
+                    <p>Genieße das Spiel mit deinen Freunden und viel Glück beim Gewinnen!</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="overlay-about" class="overlay">
+        <div id="content-about" class="content">
+            <h2>About</h2>
+            <div class="credits">
+                <h3>Credits:</h3>
+                <ul>
+                    <li><p><a href="https://hw-schule.de">HWS Schulprojekt</a> - Grund / Idee</li>
+                    <li><p><a href="https://github.com/saladrian">Saladrian</a> - UI/UX Design</p></li>
+                    <li><p><a href="https://github.com/saladrian">Saladrian</a> - Game Development</p></li>
+                    <li><p><a href="https://www.iconfinder.com/quizanswers/icon-sets">Vlad Marin</a> - Icon</p></li>
+                </ul>
+            </div>
+            <p>Current Version: 1.0 BETA</p>
+        </div>
+    </div>
+    <div class="container features">
+        <div class="row maincontent">
+            <div class="col-lg-8 col-md-8 col-sm-12 gameblock">
+                <h3 class="feature-title">Spielfeld</h3>
+                <div id="gamefield-parent">
+                    <div id="gamefield" class="gamefield justify-content-center">
+                        <button id="1" type="button" class="btn btn-primary ttt"></button>
+                        <button id="2" type="button" class="btn btn-primary ttt"></button>
+                        <button id="3" type="button" class="btn btn-primary ttt"></button>
+                        <button id="4" type="button" class="btn btn-primary ttt"></button>
+                        <button id="5" type="button" class="btn btn-primary ttt"></button>
+                        <button id="6" type="button" class="btn btn-primary ttt"></button>
+                        <button id="7" type="button" class="btn btn-primary ttt"></button>
+                        <button id="8" type="button" class="btn btn-primary ttt"></button>
+                        <button id="9" type="button" class="btn btn-primary ttt"></button>
+                    </div>
+                    <div id=gamefield-grid>
+                    </div>
+                </div>
+                <svg id="win-line"></svg>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 infoblock">
+                <h3 class="feature-title">Spielinformation</h3>
+                <div id="gameinfo" class="gameinfo justify-content-center">
+                    <div id="info1" class="form-control" placeholder="Something went wrong!"><b>Wins</b><br>X N/A | N/A O</div>
+                    <div id="info2" class="form-control" placeholder="Something went wrong!"><b>Matches played</b><br>N/A</div>
+                    <div id="info3" class="form-control" placeholder="Something went wrong!"><b>Status</b><br>Disconnected!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz" crossorigin="anonymous"></script>
+<script src="static/js/ttt.js"></script>
+
+</html>
